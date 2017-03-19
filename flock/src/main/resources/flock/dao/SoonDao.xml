@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="flock.dao.UserDao">
+
+  <resultMap type="user" id="userMap">
+    <id 		column="SEQ" 	      property="seq"/>
+    <result column="USER_ID"    property="userId"/>
+    <result column="USER_PW"    property="userPw"/>
+    <result column="USER_NAME"  property="userName"/>
+    <result column="BIRTH"      property="birth"/>
+  </resultMap>
+
+  <select id="selectList" resultMap="userMap">
+    select SEQ, USER_ID, USER_PW, USER_NAME, BIRTH from user
+  </select>
+    
+  <select id="selectOne" resultMap="userMap" parameterType="java.lang.Integer">
+    select SEQ, USER_ID, USER_PW, USER_NAME, BIRTH from user
+      where SEQ = #{seq}
+  </select>
+</mapper>
+
+
+
+
+
+
